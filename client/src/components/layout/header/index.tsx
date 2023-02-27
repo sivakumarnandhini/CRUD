@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useGetIdentity } from "@pankod/refine-core";
 import { AppBar, Avatar, Stack, Toolbar, Typography } from "@pankod/refine-mui";
+import {DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+import {ColorModeContext} from "contexts";
 
 export const Header: React.FC = () => {
+    const {mode, setMode} = useContext(ColorModeContext);
     const { data: user } = useGetIdentity();
     const showUserInfo = user && (user.name || user.avatar);
 
